@@ -1,10 +1,10 @@
 {
-  "name": "Girly Cute Calculator",
-  "short_name": "CuteCalc",
+  "name": "Mercy's Calculator",
+  "short_name": "Mercy's Calc",
   "start_url": "index.html",
   "display": "standalone",
-  "background_color": "#ff9a9e",
-  "theme_color": "#ff69b4",
+  "background_color": "#2d242b",
+  "theme_color": "#422d36",
   "icons": [
     {
       "src": "icon.png",

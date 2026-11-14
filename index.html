@@ -3,24 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>✨ Cute Calc ✨</title>
+    <title>✨ Mercy's Calculator ✨</title>
     <link rel="stylesheet" href="style.css">
     <link rel="manifest" href="manifest.json">
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <!-- Audio Effect -->
     <audio id="popSound" src="pop.mp3" preload="auto"></audio>
 
     <div class="calculator-card">
-        <!-- Header with your photo and title -->
         <div class="header">
             <div class="profile-section">
-                <img src="icon.png" alt="My Icon" class="profile-pic">
-                <span class="brand">✨ Cute Calc ✨</span>
+                <img src="icon.png" alt="Profile" class="profile-pic">
+                <span class="brand">Mercy's Calc</span>
             </div>
-            <button class="mode-btn" onclick="toggleMode()">💖 Tip Splitter</button>
+            <button class="mode-btn" onclick="toggleMode()">Tip Splitter</button>
         </div>
 
         <!-- STANDARD CALCULATOR -->
@@ -53,26 +51,26 @@
             </div>
         </div>
 
-        <!-- TIP CALCULATOR MODE -->
+        <!-- TIP CALCULATOR MODE (No Currency) -->
         <div id="tipCalc" class="calc-section hidden">
             <div class="tip-container">
-                <label>Bill Amount ($):</label>
+                <label>Bill Amount:</label>
                 <input type="number" id="billAmount" placeholder="0.00" oninput="calculateTip()">
 
                 <label>Tip %:</label>
                 <div class="tip-buttons">
+                    <button class="tip-btn" onclick="setTip(10)">10%</button>
                     <button class="tip-btn" onclick="setTip(15)">15%</button>
                     <button class="tip-btn" onclick="setTip(18)">18%</button>
                     <button class="tip-btn" onclick="setTip(20)">20%</button>
-                    <button class="tip-btn" onclick="setTip(25)">25%</button>
                 </div>
 
                 <label>Split between (People):</label>
                 <input type="number" id="splitCount" value="1" min="1" oninput="calculateTip()">
 
                 <div class="tip-result">
-                    <div class="result-row"><span>Tip:</span> <span id="tipTotal">$0.00</span></div>
-                    <div class="result-row total"><span>Total per person:</span> <span id="personTotal">$0.00</span></div>
+                    <div class="result-row"><span>Tip Amount:</span> <span id="tipTotal">0.00</span></div>
+                    <div class="result-row total"><span>Total per person:</span> <span id="personTotal">0.00</span></div>
                 </div>
             </div>
         </div>
