@@ -10,34 +10,71 @@
 </head>
 <body>
 
+    <!-- Audio Effect -->
+    <audio id="popSound" src="pop.mp3" preload="auto"></audio>
+
     <div class="calculator-card">
-        <div class="brand">✨ Cute Calc ✨</div>
-        <div id="display" class="display">0</div>
-        
-        <div class="buttons">
-            <button class="btn function" onclick="clearDisplay()">C</button>
-            <button class="btn function" onclick="deleteChar()">⌫</button>
-            <button class="btn operator" onclick="appendValue('%')">%</button>
-            <button class="btn operator" onclick="appendValue('/')">÷</button>
+        <!-- Header with your photo and title -->
+        <div class="header">
+            <div class="profile-section">
+                <img src="icon.png" alt="My Icon" class="profile-pic">
+                <span class="brand">✨ Cute Calc ✨</span>
+            </div>
+            <button class="mode-btn" onclick="toggleMode()">💖 Tip Splitter</button>
+        </div>
 
-            <button class="btn" onclick="appendValue('7')">7</button>
-            <button class="btn" onclick="appendValue('8')">8</button>
-            <button class="btn" onclick="appendValue('9')">9</button>
-            <button class="btn operator" onclick="appendValue('*')">×</button>
+        <!-- STANDARD CALCULATOR -->
+        <div id="standardCalc" class="calc-section">
+            <div id="display" class="display">0</div>
+            <div class="buttons">
+                <button class="btn function" onclick="clearDisplay()">C</button>
+                <button class="btn function" onclick="deleteChar()">⌫</button>
+                <button class="btn operator" onclick="appendValue('%')">%</button>
+                <button class="btn operator" onclick="appendValue('/')">÷</button>
 
-            <button class="btn" onclick="appendValue('4')">4</button>
-            <button class="btn" onclick="appendValue('5')">5</button>
-            <button class="btn" onclick="appendValue('6')">6</button>
-            <button class="btn operator" onclick="appendValue('-')">-</button>
+                <button class="btn" onclick="appendValue('7')">7</button>
+                <button class="btn" onclick="appendValue('8')">8</button>
+                <button class="btn" onclick="appendValue('9')">9</button>
+                <button class="btn operator" onclick="appendValue('*')">×</button>
 
-            <button class="btn" onclick="appendValue('1')">1</button>
-            <button class="btn" onclick="appendValue('2')">2</button>
-            <button class="btn" onclick="appendValue('3')">3</button>
-            <button class="btn operator" onclick="appendValue('+')">+</button>
+                <button class="btn" onclick="appendValue('4')">4</button>
+                <button class="btn" onclick="appendValue('5')">5</button>
+                <button class="btn" onclick="appendValue('6')">6</button>
+                <button class="btn operator" onclick="appendValue('-')">-</button>
 
-            <button class="btn zero" onclick="appendValue('0')">0</button>
-            <button class="btn" onclick="appendValue('.')">.</button>
-            <button class="btn equals" onclick="calculate()">=</button>
+                <button class="btn" onclick="appendValue('1')">1</button>
+                <button class="btn" onclick="appendValue('2')">2</button>
+                <button class="btn" onclick="appendValue('3')">3</button>
+                <button class="btn operator" onclick="appendValue('+')">+</button>
+
+                <button class="btn zero" onclick="appendValue('0')">0</button>
+                <button class="btn" onclick="appendValue('.')">.</button>
+                <button class="btn equals" onclick="calculate()">=</button>
+            </div>
+        </div>
+
+        <!-- TIP CALCULATOR MODE -->
+        <div id="tipCalc" class="calc-section hidden">
+            <div class="tip-container">
+                <label>Bill Amount ($):</label>
+                <input type="number" id="billAmount" placeholder="0.00" oninput="calculateTip()">
+
+                <label>Tip %:</label>
+                <div class="tip-buttons">
+                    <button class="tip-btn" onclick="setTip(15)">15%</button>
+                    <button class="tip-btn" onclick="setTip(18)">18%</button>
+                    <button class="tip-btn" onclick="setTip(20)">20%</button>
+                    <button class="tip-btn" onclick="setTip(25)">25%</button>
+                </div>
+
+                <label>Split between (People):</label>
+                <input type="number" id="splitCount" value="1" min="1" oninput="calculateTip()">
+
+                <div class="tip-result">
+                    <div class="result-row"><span>Tip:</span> <span id="tipTotal">$0.00</span></div>
+                    <div class="result-row total"><span>Total per person:</span> <span id="personTotal">$0.00</span></div>
+                </div>
+            </div>
         </div>
     </div>
 
